@@ -1,24 +1,14 @@
 package com.mentoring.epam.test.lesson9.webDriverTest;
 
-import com.google.common.base.Function;
-import com.thoughtworks.selenium.webdriven.commands.WaitForPageToLoad;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.*;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
-import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -37,7 +27,7 @@ public class GoogleTest {
     @BeforeClass(description = "Start Firefox. Open google")
     public void startBrowser(){
         driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("http://gmail.com");
     }
 
@@ -60,7 +50,7 @@ public class GoogleTest {
         public void letterCreation(){
         driver.findElement(By.xpath(".//div[contains(text(),'НАПИСАТЬ')]")).click();
         Assert.assertTrue(isElementPresent(By.xpath(".//div[contains(@data-tooltip,'Отправить')]")));
-        System.out.println("The mail frame is open");
+        System.out.println("The mail frame is open!!");
         }
 
     @Test(description = "Send letter", dependsOnMethods = "letterCreation")
@@ -97,20 +87,6 @@ public class GoogleTest {
         driver.findElement(By.id("gbqfb")).click();
         Assert.assertTrue(isElementPresent(By.xpath("//span[@email='myspecialtest2015@gmail.com'] [@name='мне']")));
     }
-
-   /* @Test(description = "restore to default",dependsOnMethods = "checkSended")
-    public void restoreToDefault(){
-        WebElement inputField = driver.findElement(By.id("gbqfq"));
-        inputField.clear();
-        inputField.sendKeys("in:sent");
-        driver.findElement(By.id("gbqfb")).click();
-        driver.findElement(By.xpath("//div[@data-tooltip='Выбрать'][@role='button']")).click();
-        driver.findElement(By.xpath("//div[@data-tooltip='Удалить']")).click();
-        Alert alert = driver.switchTo().alert();
-        alert.accept();
-        //Assert.assertTrue(isElementPresent(By.xpath()));
-    }*/
-
 
     @Test(description = "Logout", dependsOnMethods = "checkSended")
     public void logout(){
