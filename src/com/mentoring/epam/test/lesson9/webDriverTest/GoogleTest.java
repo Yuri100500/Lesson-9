@@ -1,8 +1,15 @@
 package com.mentoring.epam.test.lesson9.webDriverTest;
 
+import com.google.common.base.Function;
+import com.thoughtworks.selenium.webdriven.commands.WaitForPageToLoad;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -11,6 +18,7 @@ import org.testng.annotations.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -19,6 +27,7 @@ import java.util.concurrent.TimeUnit;
 public class GoogleTest {
 
     private static final String LOGIN = "myspecialtest2015";
+    private static final String DOMAIN = "@gmail.com";
     private static final String PASSWORD = "fireinthehole32167";
     private static final String TOPIC = "WebDriver test letter";
     private static final String MESSAGEBODY = "Hi, this is test WebDriver message. If you see this message - you are awesome!!";
@@ -28,7 +37,7 @@ public class GoogleTest {
     @BeforeClass(description = "Start Firefox. Open google")
     public void startBrowser(){
         driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         driver.get("http://gmail.com");
     }
 
@@ -41,23 +50,22 @@ public class GoogleTest {
         WebElement EnteringPassword = driver.findElement(By.id("Passwd"));
         EnteringPassword.clear();
         EnteringPassword.sendKeys(PASSWORD);
-
         driver.findElement(By.id("signIn")).click();
-        //driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         Assert.assertTrue(isElementPresent(By.id("gb_71")));
         System.out.println("Ok!");
     }
 
+
     @Test(description = "Letter creation", dependsOnMethods = "login")
         public void letterCreation(){
-        driver.findElement(By.xpath(".//*[@id=':4i']/div/div")).click();
-        Assert.assertTrue(isElementPresent(By.id(":hi")));
+        driver.findElement(By.xpath(".//div[contains(text(),'НАПИСАТЬ')]")).click();
+        Assert.assertTrue(isElementPresent(By.xpath(".//div[contains(@data-tooltip,'Отправить')]")));
         System.out.println("The mail frame is open");
         }
 
     @Test(description = "Send letter", dependsOnMethods = "letterCreation")
     public void sendNewLetter(){
-        sendLetter(LOGIN,TOPIC,MESSAGEBODY);
+        sendLetter(LOGIN + DOMAIN, TOPIC, MESSAGEBODY);
         driver.findElement(By.xpath(".//img[contains(@alt, 'Закрыть')]")).click();
         Assert.assertTrue(isElementPresent(By.xpath(".//img[contains(@alt, 'Закрыть')]")));
         System.out.println("Your letter was saved to drafts. Good job!");
@@ -65,13 +73,50 @@ public class GoogleTest {
 
     @Test(description = "Check letter in drafts",dependsOnMethods = "sendNewLetter")
     public void checkMessage() throws InterruptedException {
-        driver.findElement(By.xpath(".//a[contains(@href,'https://mail.google.com/mail/#drafts')]")).click();
-        WebDriverWait wait = new WebDriverWait(driver,4);
+        driver.findElement(By.id("gbqfq")).sendKeys("in:draft");
+        driver.findElement(By.id("gbqfb")).click();
+        WebDriverWait wait = new WebDriverWait(driver,10);
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@role='main']//table//tr[1]")));
         element.click();
-        //driver.findElement(By.xpath("//div[@role='main']//table//tr[1]")).click();
+        Thread.sleep(1500);
         Assert.assertTrue(isElementPresent(By.name("subjectbox")));
         Assert.assertTrue(isElementPresent(By.xpath(".//div[contains(@role, 'textbox')]")));
+    }
+
+    @Test(description = "Send letter", dependsOnMethods = "checkMessage")
+    public void sendLetter(){
+        driver.findElement(By.xpath(".//div[contains(@data-tooltip,'Отправить')]")).click();
+        Assert.assertTrue(isElementPresent(By.xpath("//font[contains(text(),'Черновик')]")));
+    }
+
+    @Test(description = "Check sended", dependsOnMethods = "sendLetter")
+    public void checkSended(){
+        WebElement inputField = driver.findElement(By.id("gbqfq"));
+        inputField.clear();
+        inputField.sendKeys("in:sent");
+        driver.findElement(By.id("gbqfb")).click();
+        Assert.assertTrue(isElementPresent(By.xpath("//span[@email='myspecialtest2015@gmail.com'] [@name='мне']")));
+    }
+
+   /* @Test(description = "restore to default",dependsOnMethods = "checkSended")
+    public void restoreToDefault(){
+        WebElement inputField = driver.findElement(By.id("gbqfq"));
+        inputField.clear();
+        inputField.sendKeys("in:sent");
+        driver.findElement(By.id("gbqfb")).click();
+        driver.findElement(By.xpath("//div[@data-tooltip='Выбрать'][@role='button']")).click();
+        driver.findElement(By.xpath("//div[@data-tooltip='Удалить']")).click();
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
+        //Assert.assertTrue(isElementPresent(By.xpath()));
+    }*/
+
+
+    @Test(description = "Logout", dependsOnMethods = "checkSended")
+    public void logout(){
+        driver.findElement(By.xpath("//a[@title='Аккаунт myspecialtest2015@gmail.com']")).click();
+        driver.findElement(By.id("gb_71")).click();
+        Assert.assertTrue(isElementPresent(By.id("signIn")));
     }
 
     @AfterClass(description = "Stop browser")
