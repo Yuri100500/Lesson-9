@@ -37,11 +37,11 @@ public class GoogleTest {
 
     @Test(description = "Login to mailbox")
     public void login(){
-        driver.findElement(By.id("Email")).sendKeys(LOGIN);
-        driver.findElement(By.id("Passwd")).sendKeys(PASSWORD);
-        driver.findElement(By.id("signIn")).click();
-        Assert.assertTrue(driver.findElement(By.xpath("//a[@title='Аккаунт myspecialtest2015@gmail.com']")).isDisplayed(),"Error! Unsuccessful authorization");
+        Home_Page home_page = new Home_Page(driver);
+        Main_Page main_page = new Main_Page(driver);
 
+        home_page.enterToGoogleAccount(LOGIN,PASSWORD);
+        Assert.assertTrue(main_page.checkingLogin().isDisplayed(),"Error! Unsuccessful authorization");
         System.out.println("Authorization Success!!");
     }
 
@@ -49,8 +49,7 @@ public class GoogleTest {
 
     @Test(description = "Letter creation", dependsOnMethods = "login")
         public void letterCreation(){
-        driver.findElement(By.xpath(".//div[contains(text(),'НАПИСАТЬ')]")).click();
-        Assert.assertTrue(driver.findElement(By.xpath(".//div[contains(@data-tooltip,'Отправить')]")).isDisplayed(),"Error! The mail frame wasn't created!");
+
     }
 
 
@@ -115,8 +114,6 @@ public class GoogleTest {
     public  boolean isElementPresent(By by){
         return !driver.findElements(by).isEmpty();
     }
-
-
 
     private  void sendLetter(String addressee, String topic, String messageBody){
         driver.findElement(By.name("to")).sendKeys(addressee);
