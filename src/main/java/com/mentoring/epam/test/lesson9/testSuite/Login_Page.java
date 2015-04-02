@@ -17,10 +17,11 @@ public class Login_Page {
         this.driver = driver;
     }
 
-    public void enterToGoogleAccount(String login, String password) {
+    public  Main_Page enterToGoogleAccount(String login, String password) {
         driver.findElement(By.id("Email")).sendKeys(login);
         driver.findElement(By.id("Passwd")).sendKeys(password);
         driver.findElement(By.id("signIn")).click();
+        return new Main_Page(driver);
     }
 
     public WebElement areYouOnTheMainPage() {

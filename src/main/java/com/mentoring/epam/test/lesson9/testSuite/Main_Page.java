@@ -17,9 +17,6 @@ public class Main_Page {
 
     private static WebDriver driver;
     private static WebElement element;
-    public String addressee;
-    public String topic;
-    public String messageBody;
 
     public Main_Page(WebDriver driver) {
         this.driver = driver;
@@ -31,35 +28,31 @@ public class Main_Page {
         return element;
     }
 
-    public WebElement clickOnAccountSettings() {
+    public void clickOnAccountSettings() {
         isLogging().click();
-        return element;
     }
 
 
-    public WebElement findNewLetterButton() {
+    public void findNewLetterButton() {
         element = driver.findElement(By.xpath(".//div[contains(text(),'НАПИСАТЬ')]"));
         element.click();
-        return element;
     }
 
 
     public WebElement findSendButton() {
-        element = driver.findElement(By.xpath(".//div[contains(@data-tooltip,'Отправить')]"));
+        driver.findElement(By.xpath(".//div[contains(@data-tooltip,'Отправить')]"));
         return element;
     }
 
 
-    public WebElement clickOnSendButton() {
+    public void clickOnSendButton() {
         findSendButton().click();
-        return element;
     }
 
 
-    public WebElement findAndClickCloseButton() {
+    public void findAndClickCloseButton() {
         element = driver.findElement(By.xpath(".//img[contains(@alt, 'Закрыть')]"));
         element.click();
-        return element;
     }
 
 
@@ -70,31 +63,28 @@ public class Main_Page {
 
 
     //find message input field
-    public WebElement findInputField() {
+    private WebElement findInputField() {
         element = driver.findElement(By.id("gbqfq"));
         return element;
     }
 
     //move to draft with using method findInputField;
-    public WebElement moveToDraft() {
+    public void moveToDraft() {
         findInputField().sendKeys("in:draft");
-        return element;
     }
 
 
-    public WebElement findSendedLetters() {
+    public void findSendedLetters() {
         element = findInputField();
         element.clear();
         element.sendKeys("in:sent");
         clickMagnifierButton();
-        return element;
     }
 
 
-    public WebElement clickMagnifierButton() {
+    public void clickMagnifierButton() {
         element = driver.findElement(By.id("gbqfb"));
         element.click();
-        return element;
     }
 
 
@@ -141,24 +131,18 @@ public class Main_Page {
     }
 
 
-    public WebElement findExitButton() {
+    private WebElement findExitButton() {
         element = driver.findElement(By.id("gb_71"));
         return element;
     }
 
 
-    public WebElement clickExitButton() {
+    public void clickExitButton() {
         findExitButton().click();
-        return element;
     }
 
 
     public void sendLetter(String addressee, String topic, String messageBody) {
-        this.addressee = addressee;
-        this.topic = topic;
-        this.messageBody = messageBody;
-
-
         driver.findElement(By.name("to")).sendKeys(addressee);
         driver.findElement(By.name("subjectbox")).sendKeys(topic);
         driver.findElement(By.xpath(".//div[contains(@role, 'textbox')]")).sendKeys(messageBody);
