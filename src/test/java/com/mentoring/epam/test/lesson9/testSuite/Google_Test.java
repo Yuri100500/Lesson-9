@@ -1,14 +1,13 @@
 package com.mentoring.epam.test.lesson9.testSuite;
 
 
-import com.mentoring.epam.test.lesson9.readfromfile.model.Settings;
+import com.mentoring.epam.test.lesson9.readfromfile.TxtFileReader;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import com.mentoring.epam.test.lesson9.readfromfile.*;
 
 import java.util.concurrent.TimeUnit;
 
