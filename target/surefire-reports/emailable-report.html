@@ -29,162 +29,27 @@ div.shootout {padding:2em;border:3px #4854A8 solid}
 <body>
 <table cellspacing=0 cellpadding=0 class="param">
 <tr><th>Test</th><th class="numi">Methods<br/>Passed</th><th class="numi">Scenarios<br/>Passed</th><th class="numi"># skipped</th><th class="numi"># failed</th><th class="numi">Total<br/>Time</th><th class="numi">Included<br/>Groups</th><th class="numi">Excluded<br/>Groups</th></tr>
-<tr><td style="text-align:left;padding-right:2em">Command line test</td><td class="numi">3</td><td class="numi">3</td><td class="numi_attn">3</td><td class="numi_attn">1</td><td class="numi">35,5 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr><td style="text-align:left;padding-right:2em">Command line test</td><td class="numi">7</td><td class="numi">7</td><td class="numi">0</td><td class="numi">0</td><td class="numi">17,0 seconds</td><td class="numi"></td><td class="numi"></td></tr>
 </table>
 <a id="summary"></a>
 <table cellspacing=0 cellpadding=0 class="passed">
 <tr><th>Class</th><th>Method</th><th># of<br/>Scenarios</th><th>Time<br/>(Msecs)</th></tr>
-<tr><th colspan="4">Command line test &#8212; failed (configuration methods)</th></tr>
-<tr class="failedodd"><td rowspan="1">com.mentoring.epam.test.lesson9.testSuite.Google_Test<td><a href="#m1"><b>tearDown</b>  ("Stop browser")</a></td><td class="numi">1</td><td class="numi">0</td></tr>
-<tr><th colspan="4">Command line test &#8212; failed</th></tr>
-<tr class="failedodd"><td rowspan="1">com.mentoring.epam.test.lesson9.testSuite.Google_Test<td><a href="#m2"><b>checkMessage</b>  ("Check letter in drafts")</a></td><td class="numi">1</td><td class="numi">23030</td></tr>
-<tr><th colspan="4">Command line test &#8212; skipped</th></tr>
-<tr class="skippedodd"><td rowspan="3">com.mentoring.epam.test.lesson9.testSuite.Google_Test<td><a href="#m3"><b>checkSended</b>  ("Check sended")</a></td><td class="numi">1</td><td class="numi">2</td></tr><tr class="skippedodd"><td><a href="#m4"><b>sendLetterAgain</b>  ("Send letter")</a></td><td class="numi">1</td><td class="numi">3</td></tr><tr class="skippedodd"><td><a href="#m5"><b>logout</b>  ("Logout")</a></td><td class="numi">1</td><td class="numi">2</td></tr>
 <tr><th colspan="4">Command line test &#8212; passed</th></tr>
-<tr class="passedodd"><td rowspan="3">com.mentoring.epam.test.lesson9.testSuite.Google_Test<td><a href="#m6"><b>letterCreation</b>  ("Letter creation")</a></td><td class="numi">1</td><td class="numi">1679</td></tr><tr class="passedodd"><td><a href="#m7"><b>sendNewLetter</b>  ("Send letter")</a></td><td class="numi">1</td><td class="numi">2524</td></tr><tr class="passedodd"><td><a href="#m8"><b>login</b>  ("Login to mailbox")</a></td><td class="numi">1</td><td class="numi">3948</td></tr>
+<tr class="passedodd"><td rowspan="7">com.mentoring.epam.test.lesson9.testSuite.Google_Test<td><a href="#m1"><b>logout</b>  ("Logout")</a></td><td class="numi">1</td><td class="numi">2146</td></tr><tr class="passedodd"><td><a href="#m2"><b>letterCreation</b>  ("Letter creation")</a></td><td class="numi">1</td><td class="numi">1037</td></tr><tr class="passedodd"><td><a href="#m3"><b>sendNewLetter</b>  ("Send letter")</a></td><td class="numi">1</td><td class="numi">2556</td></tr><tr class="passedodd"><td><a href="#m4"><b>checkSended</b>  ("Check sended")</a></td><td class="numi">1</td><td class="numi">1275</td></tr><tr class="passedodd"><td><a href="#m5"><b>sendLetterAgain</b>  ("Send letter")</a></td><td class="numi">1</td><td class="numi">514</td></tr><tr class="passedodd"><td><a href="#m6"><b>checkMessage</b>  ("Check letter in drafts")</a></td><td class="numi">1</td><td class="numi">2120</td></tr><tr class="passedodd"><td><a href="#m7"><b>login</b>  ("Login to mailbox")</a></td><td class="numi">1</td><td class="numi">3977</td></tr>
 </table>
 <h1>Command line test</h1>
-<a id="m1"></a><h2>com.mentoring.epam.test.lesson9.testSuite.Google_Test:tearDown</h2>
-<div style="padding-left:3em">
-<p>Error communicating with the remote browser. It may have died.
-Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8e7ca8e37638dc3091b2440b90a1d8686f&apos;, time: &apos;2015-02-27 09:10:26&apos;
-System info: host: &apos;1-PC&apos;, ip: &apos;192.168.0.62&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.7.0_51&apos;
-Driver info: driver.version: RemoteWebDriver</p>
-org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:593)
-<br/>at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:622)
-<br/>at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:468)
-<br/>at com.mentoring.epam.test.lesson9.testSuite.Google_Test.tearDown(Google_Test.java:93)
-<br/>35 lines not shown
-<p>Caused by Connect to 127.0.0.1:7055 [/127.0.0.1] failed: Connection refused: connect</p>
-org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:142)
-<br/>at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:319)
-<br/>at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:363)
-<br/>at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:219)
-<br/>at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:195)
-<br/>at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:86)
-<br/>at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:108)
-<br/>at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
-<br/>at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72)
-<br/>at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
-<br/>at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:126)
-<br/>at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:72)
-<br/>at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:133)
-<br/>at org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.execute(NewProfileExtensionConnection.java:165)
-<br/>at org.openqa.selenium.firefox.FirefoxDriver$LazyCommandExecutor.execute(FirefoxDriver.java:362)
-<br/>at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:572)
-<br/>at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:622)
-<br/>at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:468)
-<br/>at com.mentoring.epam.test.lesson9.testSuite.Google_Test.tearDown(Google_Test.java:93)
-<br/>35 lines not shown
-<p>Caused by Connection refused: connect</p>
-java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
-<br/>at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
-<br/>at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
-<br/>at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
-<br/>at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
-<br/>at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
-<br/>at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
-<br/>at java.net.Socket.connect(Socket.java:579)
-<br/>at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:72)
-<br/>at org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:125)
-<br/>at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:319)
-<br/>at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:363)
-<br/>at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:219)
-<br/>at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:195)
-<br/>at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:86)
-<br/>at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:108)
-<br/>at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
-<br/>at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72)
-<br/>at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
-<br/>at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:126)
-<br/>at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:72)
-<br/>at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:133)
-<br/>at org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.execute(NewProfileExtensionConnection.java:165)
-<br/>at org.openqa.selenium.firefox.FirefoxDriver$LazyCommandExecutor.execute(FirefoxDriver.java:362)
-<br/>at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:572)
-<br/>at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:622)
-<br/>at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:468)
-<br/>at com.mentoring.epam.test.lesson9.testSuite.Google_Test.tearDown(Google_Test.java:93)
-<br/>35 lines not shown
-</div>
+<a id="m1"></a><h2>com.mentoring.epam.test.lesson9.testSuite.Google_Test:logout</h2>
 <p class="totop"><a href="#summary">back to summary</a></p>
-<a id="m2"></a><h2>com.mentoring.epam.test.lesson9.testSuite.Google_Test:checkMessage</h2>
-<div style="padding-left:3em">
-<p>Error communicating with the remote browser. It may have died.
-Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8e7ca8e37638dc3091b2440b90a1d8686f&apos;, time: &apos;2015-02-27 09:10:26&apos;
-System info: host: &apos;1-PC&apos;, ip: &apos;192.168.0.62&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.7.0_51&apos;
-Driver info: driver.version: RemoteWebDriver</p>
-org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:593)
-<br/>at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:268)
-<br/>at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:79)
-<br/>at com.mentoring.epam.test.lesson9.testSuite.Main_Page.openUpperMessageInDrafts(Main_Page.java:105)
-<br/>at com.mentoring.epam.test.lesson9.testSuite.Google_Test.checkMessage(Google_Test.java:63)
-<br/>35 lines not shown
-<p>Caused by Connect to 127.0.0.1:7055 [/127.0.0.1] failed: Connection refused: connect</p>
-org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:142)
-<br/>at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:319)
-<br/>at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:363)
-<br/>at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:219)
-<br/>at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:195)
-<br/>at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:86)
-<br/>at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:108)
-<br/>at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
-<br/>at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72)
-<br/>at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
-<br/>at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144)
-<br/>at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:72)
-<br/>at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:133)
-<br/>at org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.execute(NewProfileExtensionConnection.java:165)
-<br/>at org.openqa.selenium.firefox.FirefoxDriver$LazyCommandExecutor.execute(FirefoxDriver.java:362)
-<br/>at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:572)
-<br/>at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:268)
-<br/>at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:79)
-<br/>at com.mentoring.epam.test.lesson9.testSuite.Main_Page.openUpperMessageInDrafts(Main_Page.java:105)
-<br/>at com.mentoring.epam.test.lesson9.testSuite.Google_Test.checkMessage(Google_Test.java:63)
-<br/>35 lines not shown
-<p>Caused by Connection refused: connect</p>
-java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
-<br/>at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
-<br/>at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
-<br/>at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
-<br/>at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
-<br/>at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
-<br/>at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
-<br/>at java.net.Socket.connect(Socket.java:579)
-<br/>at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:72)
-<br/>at org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:125)
-<br/>at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:319)
-<br/>at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:363)
-<br/>at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:219)
-<br/>at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:195)
-<br/>at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:86)
-<br/>at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:108)
-<br/>at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
-<br/>at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72)
-<br/>at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
-<br/>at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:144)
-<br/>at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:72)
-<br/>at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:133)
-<br/>at org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.execute(NewProfileExtensionConnection.java:165)
-<br/>at org.openqa.selenium.firefox.FirefoxDriver$LazyCommandExecutor.execute(FirefoxDriver.java:362)
-<br/>at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:572)
-<br/>at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:268)
-<br/>at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:79)
-<br/>at com.mentoring.epam.test.lesson9.testSuite.Main_Page.openUpperMessageInDrafts(Main_Page.java:105)
-<br/>at com.mentoring.epam.test.lesson9.testSuite.Google_Test.checkMessage(Google_Test.java:63)
-<br/>35 lines not shown
-</div>
+<a id="m2"></a><h2>com.mentoring.epam.test.lesson9.testSuite.Google_Test:letterCreation</h2>
 <p class="totop"><a href="#summary">back to summary</a></p>
-<a id="m3"></a><h2>com.mentoring.epam.test.lesson9.testSuite.Google_Test:checkSended</h2>
+<a id="m3"></a><h2>com.mentoring.epam.test.lesson9.testSuite.Google_Test:sendNewLetter</h2>
 <p class="totop"><a href="#summary">back to summary</a></p>
-<a id="m4"></a><h2>com.mentoring.epam.test.lesson9.testSuite.Google_Test:sendLetterAgain</h2>
+<a id="m4"></a><h2>com.mentoring.epam.test.lesson9.testSuite.Google_Test:checkSended</h2>
 <p class="totop"><a href="#summary">back to summary</a></p>
-<a id="m5"></a><h2>com.mentoring.epam.test.lesson9.testSuite.Google_Test:logout</h2>
+<a id="m5"></a><h2>com.mentoring.epam.test.lesson9.testSuite.Google_Test:sendLetterAgain</h2>
 <p class="totop"><a href="#summary">back to summary</a></p>
-<a id="m6"></a><h2>com.mentoring.epam.test.lesson9.testSuite.Google_Test:letterCreation</h2>
+<a id="m6"></a><h2>com.mentoring.epam.test.lesson9.testSuite.Google_Test:checkMessage</h2>
 <p class="totop"><a href="#summary">back to summary</a></p>
-<a id="m7"></a><h2>com.mentoring.epam.test.lesson9.testSuite.Google_Test:sendNewLetter</h2>
-<p class="totop"><a href="#summary">back to summary</a></p>
-<a id="m8"></a><h2>com.mentoring.epam.test.lesson9.testSuite.Google_Test:login</h2>
+<a id="m7"></a><h2>com.mentoring.epam.test.lesson9.testSuite.Google_Test:login</h2>
 <p class="totop"><a href="#summary">back to summary</a></p>
 </body></html>

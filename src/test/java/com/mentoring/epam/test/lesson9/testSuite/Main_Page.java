@@ -24,7 +24,7 @@ public class Main_Page {
 
 
     public WebElement isLogging() {
-        element = driver.findElement(By.xpath("//a[@title='Аккаунт myspecialtest2015@gmail.com']"));  //check that we are logging
+        element = driver.findElement(By.xpath(".//a[contains(text(),'myspecialtest2015@gmail.com')]"));  //check that we are logging
         return element;
     }
 
@@ -34,13 +34,13 @@ public class Main_Page {
 
 
     public void findNewLetterButton() {
-        element = driver.findElement(By.xpath(".//div[contains(text(),'НАПИСАТЬ')]"));
+        element = driver.findElement(By.xpath(".//div[@role ='button'] [@gh='cm']"));
         element.click();
     }
 
 
     public WebElement findSendButton() {
-        driver.findElement(By.xpath(".//div[contains(@data-tooltip,'Отправить')]"));
+        driver.findElement(By.xpath(".//div[@role='button'][@data-tooltip-delay='800']"));
         return element;
     }
 
@@ -51,7 +51,7 @@ public class Main_Page {
 
 
     public void findAndClickCloseButton() {
-        element = driver.findElement(By.xpath(".//img[contains(@alt, 'Закрыть')]"));
+        element = driver.findElement(By.xpath(".//tbody//td[2]//img[3]"));
         element.click();
     }
 
@@ -120,13 +120,13 @@ public class Main_Page {
 
 
     public WebElement findLetterInDrafts() {
-        element = driver.findElement(By.xpath("//font[contains(text(),'Черновик')]"));
+        element = driver.findElement(By.xpath("//div[@role='main']//table//tr[1]//td[6]//div[@role='link']"));
         return element;
     }
 
 
     public WebElement checkLetterInSended() {
-        element = driver.findElement(By.xpath("//span[@email='myspecialtest2015@gmail.com'] [@name='мне']"));
+        element = driver.findElement(By.xpath("//div[@role='main']//table//tr[1]//td[6]//div[@role='link']"));
         return element;
     }
 
