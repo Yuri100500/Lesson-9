@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [com.mentoring.epam.test.lesson9.testSuite.Google_Test]">
+  <test name="Command line test(failed)" preserve-order="false">
+    <classes>
+      <class name="com.mentoring.epam.test.lesson9.testSuite.Google_Test">
+        <methods>
+          <include name="sendLetterAgain"/>
+          <include name="startBrowser"/>
+          <include name="login"/>
+          <include name="checkMessage"/>
+          <include name="sendNewLetter"/>
+          <include name="tearDown"/>
+          <include name="letterCreation"/>
+          <include name="checkSended"/>
+          <include name="logout"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+</suite>
