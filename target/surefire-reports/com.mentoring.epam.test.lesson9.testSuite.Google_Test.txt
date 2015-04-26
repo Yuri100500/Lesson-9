@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.mentoring.epam.test.lesson9.testSuite.Google_Test
--------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 17.163 sec

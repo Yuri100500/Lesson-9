@@ -1,6 +1,7 @@
 package com.mentoring.epam.test.lesson9.testSuite;
 
 
+import com.mentoring.epam.test.lesson9.patterns.singleton.GoogleTest;
 import com.mentoring.epam.test.lesson9.readfromfile.TxtFileReader;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -30,6 +31,10 @@ public class Google_Test {
         login_page = new Login_Page(driver);
         main_page = new Main_Page(driver);
         driver.get("http://gmail.com");
+
+        //Using singleton
+        /*GoogleTest google = new GoogleTest();
+        google.googleTest();*/
     }
 
 
