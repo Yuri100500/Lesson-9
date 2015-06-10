@@ -24,7 +24,7 @@ public class Main_Page {
 
 
     public WebElement isLogging() {
-        element = driver.findElement(By.xpath(".//a[contains(text(),'myspecialtest2015@gmail.com')]"));  //check that we are logging
+        element = driver.findElement(By.xpath(".//span[@class='gb_d gbii']"));  //check that we are logging
         return element;
     }
 

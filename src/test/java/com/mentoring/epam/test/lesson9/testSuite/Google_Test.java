@@ -3,25 +3,37 @@ package com.mentoring.epam.test.lesson9.testSuite;
 
 import com.mentoring.epam.test.lesson9.patterns.singleton.GoogleTest;
 import com.mentoring.epam.test.lesson9.readfromfile.TxtFileReader;
+import com.mentoring.epam.test.lesson9.utils.highlight.Highlight;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Iurii_Galias on 3/25/15.
  */
+
+
+
 public class Google_Test {
+    private static final com.mentoring.epam.test.lesson9.utils.log4j.Logger log = new com.mentoring.epam.test.lesson9.utils.log4j.Logger();
+    private static final String PATH_TO_SCREENSHOTS_FOLDER ="D:\\ScreenShot";
 
 
     Login_Page login_page;
     Main_Page main_page;
 
+
+
     private WebDriver driver;
+
+
 
     @BeforeClass(description = "Start Firefox. Open google")
     public void startBrowser() {
@@ -33,16 +45,19 @@ public class Google_Test {
         driver.get("http://gmail.com");
 
         //Using singleton
-        /*GoogleTest google = new GoogleTest();
-        google.googleTest();*/
+        GoogleTest google = new GoogleTest();
+        google.googleTest();
     }
 
 
     @Test(description = "Login to mailbox")
     public void login() {
+        log.debug("Class Ololo " +getClass());
+        makeScreenshot();
         login_page.enterToGoogleAccount(TxtFileReader.login, TxtFileReader.password);
         Assert.assertTrue(main_page.isLogging().isDisplayed(), "Error! Unsuccessful authorization");
         System.out.println("Authorization Success!!");
+        //log.info("Success!!!!!!");
     }
 
 
@@ -95,6 +110,29 @@ public class Google_Test {
 
     @AfterClass(description = "Stop browser")
     public void tearDown() {
+        log.info("Closing Firefox instance...GoodBye");
+        makeScreenshot();
         driver.quit();
     }
+
+    public void makeScreenshot(){
+        try{
+            File screenshot = ((TakesScreenshot) driver)
+                    .getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFileToDirectory(screenshot,new File(PATH_TO_SCREENSHOTS_FOLDER));
+            com.mentoring.epam.test.lesson9.utils.log4j.Logger.htmlOutput("Taken screenshots <a href='screenshots/"
+                    + screenshot.getName() + "'>" + screenshot.getName() + "</a>");
+        }catch (Exception e){
+            com.mentoring.epam.test.lesson9.utils.log4j.Logger.error(e.getMessage());
+        }
+    }
 }
+/*} class HighlightElement {
+    public static void highlightElement(WebElement element, WebDriver driver){
+        String bg = element.getCssValue("backgroundColor");
+        JavascriptExecutor js = ((JavascriptExecutor) driver);
+        js.executeScript("arguments[0].style.backgroundColor =  '" + "red" + "'",element);
+        js.executeScript("arguments[0].style.backgroundColor =  '" + bg + "'",element);
+    }
+}*/
+

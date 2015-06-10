@@ -14,10 +14,10 @@ public class FirefoxDriverCreator extends WebDriverCreator {
     @Override
     public WebDriver factoryMethod() {
         FirefoxBinary binary = new FirefoxBinary(new File("C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe"));
-        FirefoxProfile profile = new FirefoxProfile(new File("C:\\Users\\1\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\zupao4xs.default"));
+        FirefoxProfile profile = new FirefoxProfile(new File("C:\\Users\\Iurii_Galias@epam.com\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\vsvmbtou.default"));
 
         WebDriver driver = new FirefoxDriver(binary,profile);
-
         return driver;
+
     }
 }
